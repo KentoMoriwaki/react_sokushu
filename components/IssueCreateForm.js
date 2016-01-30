@@ -30,7 +30,7 @@ export default class IssueCreateForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit(e).bind(this)}>
+        <form onSubmit={this.onSubmit.bind(this)}>
           <input type="text" value={this.state.issue.title} onChange={this.onTitleChange.bind(this)} placeholder="Input title" />
           <textarea value={this.state.issue.description} onChange={this.onDescriptionChange.bind(this)} placeholder="Input description" />
           <button>Create</button>

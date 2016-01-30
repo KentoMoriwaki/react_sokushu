@@ -16,13 +16,18 @@ export default class IssueList extends Component {
     issue.id = this.state.issues.length + 1
     this.setState({issues: this.state.issues.concat(issue)})
   }
+  onUpdate(updatedIssue) {
+    this.setState({issues: this.state.issues.map((issue) => {
+      return issue.id == updatedIssue.id ? updatedIssue : issue
+    })})
+  }
 
   render() {
     return (
       <div>
         <ul>
           { this.state.issues.map((issue) => {
-            return <IssueListItem key={issue.id} issue={issue} />
+            return <IssueListItem key={issue.id} issue={issue} onUpdate={this.onUpdate.bind(this)}/>
           }) }
         </ul>
         <IssueCreateForm onCreate={this.onCreate.bind(this)} />
