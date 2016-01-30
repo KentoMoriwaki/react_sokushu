@@ -7,6 +7,7 @@ function handler(req, res) {
   res.send('Hello world')
 }
 
+app.use(Express.static('static'))
 app.use(handler)
 
 app.listen(port)
