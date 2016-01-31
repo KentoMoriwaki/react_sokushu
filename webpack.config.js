@@ -1,5 +1,7 @@
 module.exports = {
-  entry: "./client.js",
+  entry: [
+    "./client.js"
+  ],
   output: {
     path: './static/dist',
     filename: 'bundle.js'
@@ -13,6 +15,10 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /.scss?$/,
+        loaders: ['style', 'css', 'sass'],
       }
     ]
   }
