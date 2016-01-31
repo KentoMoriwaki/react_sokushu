@@ -7,9 +7,6 @@ export default class IssueList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      issues: [
-        { id: 1, title: 'First issue', author: {id: 1}, assignee: {id: 1} }
-      ],
       emptyIssue: this.getEmptyIssue()
     }
   }
@@ -22,7 +19,7 @@ export default class IssueList extends Component {
     }
   }
 
-  onCreate(issue) {
+  onAdd(issue) {
     issue.id = this.state.issues.length + 1
     this.setState({issues: this.state.issues.concat(issue), emptyIssue: this.getEmptyIssue()})
   }
@@ -46,12 +43,12 @@ export default class IssueList extends Component {
             </tr>
           </thead>
           <tbody>
-            { this.state.issues.map((issue) => {
+            { this.props.issues.map((issue) => {
               return <IssueListItem key={issue.id} issue={issue} onUpdate={this.onUpdate.bind(this)}/>
             }) }
           </tbody>
         </table>
-        <IssueEditForm onSubmit={this.onCreate.bind(this)} issue={this.state.emptyIssue}/>
+        <IssueEditForm onSubmit={(issue) => this.props.onAdd(issue)} issue={this.state.emptyIssue}/>
       </div>
     )
   }
