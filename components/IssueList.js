@@ -8,7 +8,7 @@ export default class IssueList extends Component {
     super(props)
     this.state = {
       issues: [
-        { id: 1, title: 'First issue', author: 1 }
+        { id: 1, title: 'First issue', author: {id: 1}, assignee: {id: 1} }
       ],
       emptyIssue: this.getEmptyIssue()
     }
@@ -17,7 +17,8 @@ export default class IssueList extends Component {
     return {
       title: '',
       description: '',
-      assignee: 1
+      author: { id: 1 },
+      assignee: { id: 1 }
     }
   }
 

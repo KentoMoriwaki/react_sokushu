@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import UserSelect from './UserSelect'
+
 export default class IssueEditForm extends Component {
   constructor(props) {
     super(props)
@@ -9,7 +11,9 @@ export default class IssueEditForm extends Component {
     return {
       title: this.props.issue.title,
       description: this.props.issue.description,
-      id: this.props.issue.id
+      id: this.props.issue.id,
+      assignee: this.props.issue.assignee,
+      author: this.props.issue.author
     }
   }
 
@@ -28,6 +32,11 @@ export default class IssueEditForm extends Component {
     s.description = e.target.value
     this.setState(s)
   }
+  onAssigneeSelect(user) {
+    let s = this.state
+    s.assignee = user
+    this.setState(s)
+  }
 
   render() {
     return (
@@ -37,6 +46,7 @@ export default class IssueEditForm extends Component {
             <legend>Create Issue</legend>
             <input type="text" value={this.state.title} onChange={this.onTitleChange.bind(this)} placeholder="Input title" />
             <textarea value={this.state.description} onChange={this.onDescriptionChange.bind(this)} placeholder="Input description" />
+            <UserSelect onChange={this.onAssigneeSelect.bind(this)} />
             <button className="pure-button pure-button-primary">Save</button>
           </fieldset>
         </form>

@@ -30,8 +30,8 @@ export default class IssueListItem extends Component {
           <a onClick={this.onEditClick.bind(this)}>{ issue.title }</a>
         </td>
         <td>{ issue.description }</td>
-        <td>{ issue.author }</td>
-        <td>{ issue.assignee }</td>
+        <td>{ issue.author.name }</td>
+        <td>{ issue.assignee.name }</td>
         { this.state.isEditFormVisible && <IssueEditForm issue={this.props.issue} onUpdate={this.onUpdate.bind(this)} /> }
       </tr>
     )
