@@ -1,25 +1,14 @@
 import React, { Component } from 'react'
 
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { introduction: 'My name is Kento' }
-  }
-  handleSubmit(e) {
-    e.preventDefault()
-    alert(this.state.introduction)
-  }
-  onChange(e) {
-    this.setState({introduction: e.target.value})
-  }
+import GlobalHeader from './GlobalHeader'
+import IssueList from './IssueList'
 
+export default class App extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <textarea value={this.state.introduction} onChange={(e) => this.onChange(e)}></textarea>
-          <input type="submit" value="Save" />
-        </form>
+        <GlobalHeader />
+        <IssueList />
       </div>
     )
   }
