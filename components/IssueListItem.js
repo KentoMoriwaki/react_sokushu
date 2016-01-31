@@ -22,12 +22,18 @@ export default class IssueListItem extends Component {
   }
 
   render() {
+    let issue = this.props.issue
     return (
-      <div>
-        <h1>{ this.props.issue.title }</h1>
-        <a onClick={this.onEditClick.bind(this)}>Edit</a>
+      <tr>
+        <td>{ issue.id }</td>
+        <td>
+          <a onClick={this.onEditClick.bind(this)}>{ issue.title }</a>
+        </td>
+        <td>{ issue.description }</td>
+        <td>{ issue.author }</td>
+        <td>{ issue.assignee }</td>
         { this.state.isEditFormVisible && <IssueEditForm issue={this.props.issue} onUpdate={this.onUpdate.bind(this)} /> }
-      </div>
+      </tr>
     )
   }
 }
