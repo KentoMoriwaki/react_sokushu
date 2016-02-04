@@ -1,13 +1,18 @@
 import 'babel-polyfill'
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 
 import App from './containers/App'
 import issueApp from './reducers'
 
-const store = createStore(issueApp, window.__INITIAL_STATE__)
+const store = createStore(
+  issueApp,
+  applyMiddleware(thunk),
+  window.__INITIAL_STATE__
+)
 
 render(
   <Provider store={store}>
