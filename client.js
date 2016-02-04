@@ -8,9 +8,9 @@ import thunk from 'redux-thunk'
 import App from './containers/App'
 import issueApp from './reducers'
 
+//TODO: Create store from initial state
 const store = createStore(
   issueApp,
-  window.__INITIAL_STATE__,
   applyMiddleware(thunk)
 )
 

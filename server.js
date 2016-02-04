@@ -12,6 +12,7 @@ import { refreshIssues } from './actions/issues'
 const app = Express()
 const port = 3000
 
+//TODO: Interpolate html and initialState
 function renderFullPage(html, initialState) {
   return `
   <!doctype html>
@@ -20,10 +21,7 @@ function renderFullPage(html, initialState) {
     <title>React Sokushu</title>
   </head>
   <body>
-    <div id="root">${html}</div>
-    <script>
-      window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
-    </script>
+    <div id="root"></div>
     <script src="/dist/bundle.js"></script>
   </body>
   </html>
@@ -32,8 +30,7 @@ function renderFullPage(html, initialState) {
 
 function handler(req, res) {
   const store = createStore(issueApp)
-  const issues = getIssues()
-  store.dispatch(refreshIssues(issues))
+  //TOOD: Set initial data
   const html = renderToString(
     <Provider store={store}>
       <App />
