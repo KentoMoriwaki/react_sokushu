@@ -6,7 +6,8 @@ import { Provider } from 'react-redux'
 
 import App from './containers/App'
 import issueApp from './reducers'
-import { issuesHandler } from './api/issues'
+import { getIssues, issuesHandler } from './api/issues'
+import { refreshIssues } from './actions/issues'
 
 const app = Express()
 const port = 3000
@@ -31,6 +32,8 @@ function renderFullPage(html, initialState) {
 
 function handler(req, res) {
   const store = createStore(issueApp)
+  const issues = getIssues()
+  store.dispatch(refreshIssues(issues))
   const html = renderToString(
     <Provider store={store}>
       <App />
