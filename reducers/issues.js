@@ -10,26 +10,14 @@ export default function issues(state, action) {
   }
   switch (action.type) {
     case ADD:
+      let issue = action.issue
       return [
         ...state,
         {
           id: state.length + 1,
-          title: action.title,
-          description: action.description,
-          author: action.author,
-          assignee: action.assignee
+          title: issue.title,
+          description: issue.description
         }
-      ]
-    case UPDATE:
-      let index = state.findIndex((issue) => {
-        return issue.id == action.id
-      })
-      let issue = Object.assign({}, state[index], action)
-      delete issue.type
-      return [
-        ...state.slice(0, index),
-        issue,
-        ...state.slice(index + 1, 0)
       ]
   }
   return state

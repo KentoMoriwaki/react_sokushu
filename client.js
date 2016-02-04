@@ -9,8 +9,6 @@ import app from './reducers'
 
 const store = createStore(app)
 
-require("./style.scss")
-
 render(
   <Provider store={store}>
     <App />

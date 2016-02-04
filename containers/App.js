@@ -2,17 +2,15 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import GlobalHeader from '../components/GlobalHeader'
 import IssueList from '../components/IssueList'
-import * as Actions from '../actions/issues'
+import { addIssue } from '../actions/issues'
 
 class App extends Component {
   render() {
     const { dispatch, issues } = this.props
     return (
       <div>
-        <GlobalHeader />
-        <IssueList issues={issues} onAdd={this.props.addIssue} onUpdate={this.props.updateIssue} />
+        <IssueList issues={issues} onAdd={this.props.onAdd} onUpdate={this.props.updateIssue} />
       </div>
     )
   }
@@ -25,7 +23,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch)
+  return {
+    onAdd: (issue) => {
+      dispatch(addIssue(issue))
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
