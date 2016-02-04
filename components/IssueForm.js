@@ -32,9 +32,9 @@ class IssueForm extends Component {
         <form onSubmit={this.onSubmit.bind(this)}>
           <fieldset>
             <legend>Create Issue</legend>
-            <input style={[styles.input]} type="text" value={this.state.title} onChange={this.onTitleChange.bind(this)} placeholder="Input title" />
-            <textarea style={[styles.input, styles.textarea]} value={this.state.description} onChange={this.onDescriptionChange.bind(this)} placeholder="Input description" />
-            <button style={[styles.button]}>Save</button>
+            <input style={styles.input} type="text" value={this.state.title} onChange={this.onTitleChange.bind(this)} placeholder="Input title" />
+            <textarea style={styles.input} value={this.state.description} onChange={this.onDescriptionChange.bind(this)} placeholder="Input description" />
+            <button style={styles.button}>Save</button>
           </fieldset>
         </form>
       </div>
@@ -50,18 +50,12 @@ const styles = {
     margin: '10px 0',
     border: '1px solid #ccc'
   },
-  textarea: {
-    height: '100px'
-  },
   button: {
     backgroundColor: '#00A4BB',
     border: 'none',
     padding: '6px 15px',
     color: 'white',
     cursor: 'pointer',
-    ':hover': {
-      backgroundColor: color('#00A4BB').darken(0.2).hexString(),
-    }
   }
 }
 
