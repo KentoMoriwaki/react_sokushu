@@ -10,8 +10,8 @@ import issueApp from './reducers'
 
 const store = createStore(
   issueApp,
-  applyMiddleware(thunk),
-  window.__INITIAL_STATE__
+  window.__INITIAL_STATE__,
+  applyMiddleware(thunk)
 )
 
 render(
