@@ -5,9 +5,9 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import App from './containers/App'
-import app from './reducers'
+import issueApp from './reducers'
 
-const store = createStore(app)
+const store = createStore(issueApp)
 
 render(
   <Provider store={store}>
