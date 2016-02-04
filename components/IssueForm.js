@@ -13,13 +13,9 @@ export default class IssueList extends Component {
     this.setState({ description: e.target.value })
   }
 
-  onSubmit(e) {
-    e.preventDefault()
-    this.props.onSubmit(this.state)
-  }
   render() {
     return (
-      <form onSubmit={this.onSubmit.bind(this)}>
+      <form>
         <fieldset>
           <legend>Create Issue</legend>
           <input type="text" value={this.state.title} onChange={this.onChangeTitle.bind(this)} placeholder="Input title" />
