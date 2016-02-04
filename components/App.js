@@ -6,13 +6,21 @@ export default class App extends Component {
     this.state = { title: '', description: '' }
   }
 
+  onChangeTitle(e) {
+    this.setState({ title: e.target.value })
+  }
+
+  onChangeDescription(e) {
+    this.setState({ description: e.target.value })
+  }
+
   render() {
     return (
       <form>
         <fieldset>
           <legend>Create Issue</legend>
-          <input type="text" value={this.state.title} placeholder="Input title" />
-          <textarea value={this.state.description} placeholder="Input description" />
+          <input type="text" value={this.state.title} onChange={this.onChangeTitle.bind(this)} placeholder="Input title" />
+          <textarea value={this.state.description} onChange={this.onChangeDescription.bind(this)} placeholder="Input description" />
           <button>Save</button>
         </fieldset>
       </form>
