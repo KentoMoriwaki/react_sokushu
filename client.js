@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import App from './containers/App'
 import issueApp from './reducers'
 
-const store = createStore(issueApp)
+const store = createStore(issueApp, window.__INITIAL_STATE__)
 
 render(
   <Provider store={store}>
