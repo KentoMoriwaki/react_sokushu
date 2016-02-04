@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import IssueList from '../components/IssueList'
-import { addIssue, loadIssues } from '../actions/issues'
+import { addIssue } from '../actions/issues'
 
 class App extends Component {
   onAdd(issue) {
