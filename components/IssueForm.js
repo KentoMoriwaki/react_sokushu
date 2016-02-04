@@ -18,10 +18,10 @@ export default class IssueForm extends Component {
     this.setState(this.createEmptyState())
   }
   onTitleChange(e) {
-    this.setState(Object.assign({}, this.state, {title: e.target.value}))
+    this.setState({ title: e.target.value })
   }
   onDescriptionChange(e) {
-    this.setState(Object.assign({}, this.state, {description: e.target.value}))
+    this.setState({ description: e.target.value })
   }
 
   render() {
