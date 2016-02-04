@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <IssueList issues={this.props.issues} onAdd={this.onAdd.bind(this)} onUpdate={this.props.updateIssue} />
+        <IssueList issues={this.props.issues} onAdd={this.onAdd.bind(this)} />
       </div>
     )
   }
