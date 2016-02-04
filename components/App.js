@@ -1,29 +1,29 @@
 import React, { Component } from 'react'
 
+import IssueList from './IssueList'
+import IssueForm from './IssueForm'
+
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { title: '', description: '' }
+    this.state = {
+      issues: [
+        { id: 1, title: 'First Issue', description: 'foobarbaz' },
+        { id: 2, title: 'Incident', description: 'OMG' }
+      ]
+    }
   }
-
-  onChangeTitle(e) {
-    this.setState({ title: e.target.value })
+  onSubmit(issue) {
+    let issues = this.state.issues
+    issue.id = issues.length + 1
+    this.setState({ issues: issues.concat(issue) })
   }
-
-  onChangeDescription(e) {
-    this.setState({ description: e.target.value })
-  }
-
   render() {
     return (
-      <form>
-        <fieldset>
-          <legend>Create Issue</legend>
-          <input type="text" value={this.state.title} onChange={this.onChangeTitle.bind(this)} placeholder="Input title" />
-          <textarea value={this.state.description} onChange={this.onChangeDescription.bind(this)} placeholder="Input description" />
-          <button>Save</button>
-        </fieldset>
-      </form>
+      <div>
+        <IssueList issues={this.state.issues} />
+        <IssueForm onSubmit={this.onSubmit.bind(this)} />
+      </div>
     )
   }
 }
