@@ -1,4 +1,4 @@
-import { ADD, UPDATE } from '../actions/issues'
+import { ADD, REFRESH } from '../actions/issues'
 
 const initialState = [
   { id: 1, title: 'First issue', author: {id: 1}, assignee: {id: 1} }
@@ -19,6 +19,8 @@ export default function issues(state, action) {
           description: issue.description
         }
       ]
+    case REFRESH:
+      return action.issues
   }
   return state
 }
