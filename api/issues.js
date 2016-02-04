@@ -1,7 +1,10 @@
-export default function issuesHandler(req, res) {
-  const issues = [
+export function getIssues() {
+  return [
     { id: 1, title: 'First Issue', description: 'aaa' },
     { id: 2, title: 'Incident Error', description: 'bbb' },
   ]
-  res.send(issues)
+}
+
+export function issuesHandler(req, res) {
+  res.send(getIssues())
 }
