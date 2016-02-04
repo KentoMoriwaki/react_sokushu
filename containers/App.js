@@ -6,20 +6,14 @@ import IssueList from '../components/IssueList'
 import { addIssue, loadIssues } from '../actions/issues'
 
 class App extends Component {
-  componentDidMount() {
-    let dispatch = this.props.dispatch
-    dispatch(loadIssues())
-  }
-
   onAdd(issue) {
-    this.props.dispatch(addIssue(issue))
+    //TODO: Dispatch addIssue action!
   }
 
   render() {
-    const { dispatch, issues } = this.props
     return (
       <div>
-        <IssueList issues={issues} onAdd={this.onAdd.bind(this)} onUpdate={this.props.updateIssue} />
+        <IssueList issues={this.props.issues} onAdd={this.onAdd.bind(this)} onUpdate={this.props.updateIssue} />
       </div>
     )
   }

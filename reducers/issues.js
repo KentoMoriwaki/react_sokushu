@@ -10,17 +10,7 @@ export default function issues(state, action) {
   }
   switch (action.type) {
     case ADD:
-      let issue = action.issue
-      return [
-        ...state,
-        {
-          id: state.length + 1,
-          title: issue.title,
-          description: issue.description
-        }
-      ]
-    case REFRESH:
-      return action.issues
+      //TODO: Add new issue
   }
   return state
 }
