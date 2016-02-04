@@ -8,16 +8,14 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <fieldset>
-            <legend>Create Issue</legend>
-            <input type="text" value={this.state.title} placeholder="Input title" />
-            <textarea value={this.state.description} placeholder="Input description" />
-            <button>Save</button>
-          </fieldset>
-        </form>
-      </div>
+      <form>
+        <fieldset>
+          <legend>Create Issue</legend>
+          <input type="text" value={this.state.title} placeholder="Input title" />
+          <textarea value={this.state.description} placeholder="Input description" />
+          <button>Save</button>
+        </fieldset>
+      </form>
     )
   }
 }
