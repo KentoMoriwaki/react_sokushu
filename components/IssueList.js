@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 
 export default class IssueList extends Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      issues: [
+        { id: 1, title: 'First Issue', description: 'foobarbaz' }
+      ]
+    }
+  }
   render() {
     return (
       <table>
@@ -13,7 +20,7 @@ export default class IssueList extends Component {
           </tr>
         </thead>
         <tbody>
-          { this.props.issues.map((issue) => {
+          { this.state.issues.map((issue) => {
             return (
               <tr key={issue.id}>
                 <td>{issue.id}</td>
