@@ -7,7 +7,7 @@ import { addIssue } from '../actions/issues'
 
 class App extends Component {
   onAdd(issue) {
-    //TODO: Dispatch addIssue action!
+    this.props.dispatch(addIssue(issue))
   }
 
   render() {
